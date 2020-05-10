@@ -36,7 +36,9 @@ constraint
 /* Unique values in sub-squares */
 constraint
     forall (x in 0..UNIT-1, y in 0..UNIT-1) (
-        alldifferent([grid[x * UNIT + r, y * UNIT + c] | r in UNITS, c in UNITS])
+        alldifferent(
+            [grid[x * UNIT + r, y * UNIT + c] | r in UNITS, c in UNITS]
+        )
     );
 
 /* Fixed points in place. */
