@@ -13,6 +13,14 @@ class Puzzle(object):
                 if self[r][c]:
                     yield [r, c, self[r][c]]
 
+    def render(self):
+        return "\n".join([
+            ' '.join(
+                [str(self[r][c] if self[r][c] else '_')
+                    for c in range(self.size)])
+            for r in range(self.size)
+        ])
+
 
 def parse_puzzle(input):
     lines = input.split('\n')

@@ -27,3 +27,20 @@ def test_parse_small_problem():
             [7, 2, 1], [7, 4, 8], [7, 7, 7],
             [8, 1, 8], [8, 3, 9], [8, 4, 7], [8, 5, 5]
         ] == list(puzzle.known_cells())
+
+
+def test_render_small_problem():
+    with open('tests/data/sudoku1') as f:
+        puzzle = parse_puzzle(f.read())
+
+        assert "\n".join([
+            '_ _ _ 4 6 9 _ 2 _',
+            '5 9 _ _ 3 _ 7 _ _',
+            '_ _ 4 _ 5 _ _ _ 6',
+            '_ 2 7 _ 4 6 _ _ _',
+            '_ _ _ _ _ _ _ _ _',
+            '_ _ _ 5 2 _ 1 6 _',
+            '7 _ _ _ 1 _ 6 _ _',
+            '_ _ 1 _ 8 _ _ 7 _',
+            '_ 8 _ 9 7 5 _ _ _'
+        ]) == puzzle.render()
